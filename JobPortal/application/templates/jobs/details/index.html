@@ -1,0 +1,33 @@
+{% extends 'jobs/layouts/main.html' %}
+
+{% block title %}
+    Outdeed | Job Portal
+{% endblock title %}
+
+{% block content %}
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">{{name}}</h4>
+                <hr style="border-color: #b8bfc2;">  
+            </div>
+            {% for item in description %}
+            <div class=".col-md-4 col-lg-3">
+                <div class="card my-3"></div>
+                <a href="{% url 'job_details' name item.name %}">
+                <div class="card-body">
+                    <p class="card-title fw-bold">{{ item.name }}</p>
+                    <p> Branch :  {{ item.branch }}</p>
+                    <p> Skills : {{ item.skills }}</p>
+                    <p> Experience : {{ item.experience }}</p>
+                    <p> Organization : {{ item.comapny_name }}</p>
+                    <p> No.of.Opening : {{ item.openings }}</p>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
